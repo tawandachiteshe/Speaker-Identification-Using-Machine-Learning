@@ -54,7 +54,7 @@ def record_audio_train():
 		CHANNELS = 1
 		RATE = 44100
 		CHUNK = 512
-		RECORD_SECONDS = 10
+		RECORD_SECONDS = 5
 		device_index = 2
 		audio = pyaudio.PyAudio()
 		print("----------------------record device list---------------------")
@@ -132,9 +132,9 @@ def record_audio_test():
 
 def train_model():
 
-	source   = "C:\\Users\\Vaibhav\\Desktop\\SpeakerIdentification\\training_set\\"   
-	dest = "C:\\Users\\Vaibhav\\Desktop\\SpeakerIdentification\\trained_models\\"
-	train_file = "C:\\Users\\Vaibhav\\Desktop\\SpeakerIdentification\\training_set_addition.txt"        
+	source   = "training_set/"   
+	dest = "trained_models/"
+	train_file = "training_set_addition.txt"        
 	file_paths = open(train_file,'r')
 	count = 1
 	features = np.asarray(())
@@ -166,9 +166,9 @@ def train_model():
 
 def test_model():
 
-	source   = "C:\\Users\\Vaibhav\\Desktop\\SpeakerIdentification\\testing_set\\"  
-	modelpath = "C:\\Users\\Vaibhav\\Desktop\\SpeakerIdentification\\trained_models\\"
-	test_file = "C:\\Users\\Vaibhav\\Desktop\\SpeakerIdentification\\testing_set_addition.txt"       
+	source   = "testing_set/"  
+	modelpath = "trained_models/"
+	test_file = "testing_set_addition.txt"       
 	file_paths = open(test_file,'r')
 	 
 	gmm_files = [os.path.join(modelpath,fname) for fname in
